@@ -1,0 +1,12 @@
+# Root
+.env
+
+# Backend
+backend/target/
+backend/.mvn/
+*.jar
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+.DS_Store
