@@ -1,5 +1,6 @@
 package aiman.dev.jobtracker.service;
 
+import java.util.EnumMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -90,11 +91,11 @@ public class JobService {
     }
 
     @Transactional(readOnly = true)
-    public Map<String, Long> getJobStats() {
+    public Map<JobStatus, Long> getJobStats() {
         User user = getCurrentUser();
-        Map<String, Long> stats = new java.util.LinkedHashMap<>();
+        Map<JobStatus, Long> stats = new EnumMap<>(JobStatus.class);
         for (JobStatus status : JobStatus.values()) {
-            stats.put(status.name(), jobRepository.countByUserAndStatus(user, status));
+            stats.put(status, jobRepository.countByUserAndStatus(user, status));
         }
         return stats;
     }
