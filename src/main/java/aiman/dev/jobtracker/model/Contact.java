@@ -33,6 +33,6 @@ public class Contact {
     private String phone;
 
     @Column(name = "linkedin_url", length = 500)
-    private String linkedin_url;
+    private String linkedinUrl;
 
 }
