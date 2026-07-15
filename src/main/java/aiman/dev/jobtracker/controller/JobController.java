@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import aiman.dev.jobtracker.dto.job.JobRequest;
 import aiman.dev.jobtracker.dto.job.JobResponse;
 import aiman.dev.jobtracker.dto.job.JobStatusUpdateRequest;
-import aiman.dev.jobtracker.model.JobStatus;
 import aiman.dev.jobtracker.service.JobService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +32,7 @@ public class JobController {
     }
 
     @GetMapping("/stats")
-    public ResponseEntity<Map<JobStatus, Long>> getJobStats() {
+    public ResponseEntity<Map<String, Long>> getJobStats() {
         return ResponseEntity.ok(jobService.getJobStats());
     }
 
